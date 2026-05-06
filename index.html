@@ -1,7 +1,757 @@
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="비에이텍 주식회사(B.A. Tech) - 부스터 펌프, 다단/단단 벌류트 펌프, 정량 펌프, 수중 펌프 제조 및 유지관리 전문기업">
+    <title>비에이텍 주식회사 (B.A. Tech)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons for modern sleek icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        :root {
+            --color-white: #ffffff;
+            --color-aqua-light: #caf0f8;
+            --color-aqua: #00b4d8;
+            --color-aqua-dark: #0077b6;
+            --color-navy: #03045e;
+            --color-navy-light: #0d1273;
+            --color-gray-100: #f8f9fa;
+            --color-gray-200: #e9ecef;
+            --color-gray-600: #6c757d;
+            --color-gray-800: #343a40;
+            --font-main: 'Noto Sans KR', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-gray-800);
+            background-color: var(--color-gray-100);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- Header / Navbar --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        header.scrolled .logo {
+            color: var(--color-navy);
+        }
+
+        header.scrolled .nav-links a {
+            color: var(--color-gray-800);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--color-white);
+            letter-spacing: -0.5px;
+            transition: color var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--color-aqua);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--color-white);
+            position: relative;
+            padding: 5px 0;
+            transition: color var(--transition-speed);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--color-aqua);
+            transition: all var(--transition-speed);
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-aqua);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--color-white);
+            border-radius: 3px;
+            transition: var(--transition-speed);
+        }
+
+        header.scrolled .menu-toggle span {
+            background-color: var(--color-navy);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-aqua-dark) 100%);
+            overflow: hidden;
+            padding-top: 80px; /* Offset for fixed header */
+        }
+
+        /* Abstract Wave Background */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 180, 216, 0.1) 0%, transparent 50%);
+            animation: pulseWave 15s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes pulseWave {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.2) translate(-5%, -5%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInDown 1s ease forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s ease 0.2s forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInDown 1s ease 0.4s forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            animation: fadeInDown 1s ease 0.6s forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all var(--transition-speed);
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--color-aqua);
+            color: var(--color-white);
+            box-shadow: 0 10px 20px rgba(0, 180, 216, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #009ac2;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0, 180, 216, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--color-white);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-white);
+            color: var(--color-navy);
+            transform: translateY(-3px);
+        }
+
+        /* SVG Wave Divider */
+        .wave-container {
+            position: absolute;
+            bottom: -5px; /* Slight overlap to prevent gaps */
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-container svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 120px;
+        }
+
+        .wave-container .shape-fill {
+            fill: var(--color-gray-100);
+        }
+
+        /* --- Features Section --- */
+        .features {
+            padding: 120px 5%;
+            background-color: var(--color-gray-100);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--color-gray-600);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            opacity: 0; /* For scroll animation */
+            transform: translateY(30px);
+        }
+
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(0, 180, 216, 0.3);
+        }
+
+        /* Card background gradient blob */
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--color-aqua-light) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.5;
+            transition: all var(--transition-speed);
+        }
+
+        .feature-card:hover::before {
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--color-aqua), var(--color-aqua-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--color-white);
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card p {
+            color: var(--color-gray-600);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--color-navy);
+            color: var(--color-white);
+            padding: 80px 5% 40px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo i {
+            color: var(--color-aqua);
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .footer-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .info-col h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--color-aqua);
+        }
+
+        .info-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-col li {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .info-col li i {
+            margin-top: 4px;
+            color: var(--color-aqua-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* --- Animations & Utilities --- */
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--color-navy);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                gap: 20px;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease-in-out;
+            }
+
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .nav-links a {
+                color: var(--color-white) !important;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+                background-color: var(--color-white) !important;
+            }
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+                background-color: var(--color-white) !important;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .wave-container svg {
+                height: 60px;
+            }
+
+            .features {
+                padding: 80px 5%;
+            }
+            
+            .feature-card {
+                padding: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-메롱
+
+    <!-- Header -->
+    <header id="header">
+        <a href="index.html" class="logo">
+            <i class="ph-fill ph-drop"></i>
+            비에이텍(주)
+        </a>
+
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="intro.html">기업소개</a></li>
+                <li><a href="product.html">주요제품</a></li>
+                <li><a href="equipment.html">장비</a></li>
+                <li><a href="sales_history.html">주요사업실적</a></li>
+                <li><a href="contact.html">오시는 길 / 문의</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">유체 제어 솔루션 전문기업</div>
+            <h1>맑은 물을 향한 끊임없는 혁신,<br>비에이텍(주)이 함께합니다.</h1>
+            <p>부스터 펌프부터 수중 펌프까지, 축적된 기술력으로 최고의 유체 제어 솔루션을 제공합니다.</p>
+            <div class="cta-group">
+                <a href="product.html" class="btn btn-primary">
+                    제품 라인업 보기 <i class="ph-bold ph-arrow-right"></i>
+                </a>
+                <a href="inquiry.html" class="btn btn-outline">
+                    프로젝트 문의하기 <i class="ph-bold ph-envelope-simple"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- SVG Wave Divider -->
+        <div class="wave-container">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,121.3,201.39,114.5,242.49,110.59,282.68,91.33,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-header">
+            <h2>비에이텍(주)의 핵심 경쟁력</h2>
+            <p>신뢰할 수 있는 기술력과 검증된 품질로 최적의 솔루션을 약속합니다.</p>
+        </div>
+
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="ph-fill ph-engine"></i>
+                </div>
+                <h3>다양한 제품 라인업</h3>
+                <p>다단/단단/양흡입/편흡입 벌류트 펌프, 정량 펌프, 수중 및 오수 펌프, 부스터 펌프 시스템 등 다양한 산업 및 생활 환경에 맞는 제품을 직접 제조 및 공급합니다.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card" style="transition-delay: 0.1s;">
+                <div class="feature-icon">
+                    <i class="ph-fill ph-certificate"></i>
+                </div>
+                <h3>공인된 품질과 기술력</h3>
+                <p>ISO 9001 인증, 메인비즈(Main-Biz) 경영혁신형 중소기업 확인, KC 위생안전기준 인증 등을 획득하여 철저한 품질 관리 시스템을 입증하였습니다.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card" style="transition-delay: 0.2s;">
+                <div class="feature-icon">
+                    <i class="ph-fill ph-buildings"></i>
+                </div>
+                <h3>풍부한 관급 공사 실적</h3>
+                <p>춘천시, 홍천군, 철원군, 삼척시 등 다수의 지자체 상하수도 및 농업용수 펌프 관급자재 납품을 성공적으로 완료하며 신뢰를 구축해 왔습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <i class="ph-fill ph-drop"></i>
+                    비에이텍(주)
+                </div>
+                <p>맑은 물을 향한 끊임없는 혁신, 최고의 유체 제어 솔루션 기업 비에이텍 주식회사가 언제나 곁에 있습니다.</p>
+            </div>
+
+            <div class="footer-info">
+                <div class="info-col">
+                    <h4>Company Info</h4>
+                    <ul>
+                        <li><i class="ph-bold ph-buildings"></i> 상호명 : 비에이텍 주식회사 (B.A. Tech)</li>
+                        <li><i class="ph-bold ph-user"></i> 대표이사 : 조세연</li>
+                        <li><i class="ph-bold ph-map-pin"></i> 주소 : 강원특별자치도 춘천시 퇴계공단2길 64 (퇴계동)</li>
+                    </ul>
+                </div>
+                <div class="info-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="ph-bold ph-phone"></i> 연락처 : 033-264-9243</li>
+                        <li><i class="ph-bold ph-printer"></i> FAX : 033-251-5747</li>
+                        <li><i class="ph-bold ph-envelope"></i> Email : info@batech.co.kr</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 비에이텍(주). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header Scroll Effect
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('mobile-menu');
+            const navLinks = document.getElementById('nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                
+                // Add scrolled class to header if menu is open and we are at top
+                if(menuToggle.classList.contains('active') && window.scrollY <= 50) {
+                    header.classList.add('scrolled');
+                } else if (!menuToggle.classList.contains('active') && window.scrollY <= 50) {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Intersection Observer for Fade-in Animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once it's visible
+                    }
+                });
+            }, observerOptions);
+
+            // Select all elements to animate
+            const animateElements = document.querySelectorAll('.feature-card');
+            
+            animateElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
