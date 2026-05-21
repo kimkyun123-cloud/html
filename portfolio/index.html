@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="비에이텍(주) AI 포트폴리오 - AI 도구를 활용한 기업 웹사이트 제작 과정과 프롬프트 아카이빙">
+  <title>비에이텍(주) | AI 포트폴리오</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Wave Background -->
+  <div class="wave-bg">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="../index.html" class="logo">BA<span>TECH</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html"><i class="fa-solid fa-house"></i> 홈</a></li>
+      <li><a href="../corporate/index.html"><i class="fa-solid fa-building"></i> 기업 사이트</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Portfolio Header -->
+  <div class="portfolio-header">
+    <h1><i class="fa-solid fa-robot" style="color:var(--sky-blue);"></i> AI <span>포트폴리오</span></h1>
+    <p style="color:var(--text-secondary);max-width:600px;margin:0 auto;">
+      비에이텍(주) 기업 웹사이트 제작에 활용된 AI 도구별 과정과 프롬프트를 정리한 아카이빙입니다.
+    </p>
+  </div>
+
+  <!-- Accordion Container -->
+  <div class="accordion-container">
+
+    <!-- 1. Google Flow -->
+    <div class="accordion-item">
+      <button class="accordion-header" id="acc-google-flow">
+        <span><i class="fa-brands fa-google" style="color:#4285F4;"></i> Google Flow — 워크플로 자동화 & 기획</span>
+        <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <h4><i class="fa-solid fa-bullseye"></i> 활용 목적</h4>
+          <p>웹사이트 전체 워크플로 설계, 페이지 구조 자동 생성, 콘텐츠 흐름 최적화</p>
+          <h4><i class="fa-solid fa-terminal"></i> 사용 프롬프트 예시</h4>
+          <pre>"비에이텍(주) 수처리 전문기업의 웹사이트를 제작하려 합니다.
+메인 게이트웨이 → 기업 사이트 → 포트폴리오의 3단계 구조로
+각 페이지별 필수 섹션과 콘텐츠 흐름을 자동으로 설계해 주세요."</pre>
+          <h4><i class="fa-solid fa-circle-check"></i> 결과물</h4>
+          <p>3개 페이지(Gateway, Corporate, Portfolio)의 전체 구조도 및 섹션별 콘텐츠 매핑, 네비게이션 흐름 자동 생성.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. ChatGPT Image 2.0 -->
+    <div class="accordion-item">
+      <button class="accordion-header" id="acc-chatgpt-image">
+        <span><i class="fa-solid fa-image" style="color:#10a37f;"></i> ChatGPT Image 2.0 — 이미지 생성 & 편집</span>
+        <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <h4><i class="fa-solid fa-bullseye"></i> 활용 목적</h4>
+          <p>카드뉴스 이미지(card1~5.jpg), 브로슈어 비주얼, 히어로 배경 이미지 생성 및 편집</p>
+          <h4><i class="fa-solid fa-terminal"></i> 사용 프롬프트 예시</h4>
+          <pre>"A clean, modern industrial water treatment facility,
+blue gradient lighting, crystal clear water flowing
+through stainless steel pipes, cinematic composition,
+8k quality, professional photography style"</pre>
+          <h4><i class="fa-solid fa-circle-check"></i> 결과물</h4>
+          <p>card1.jpg ~ card5.jpg 카드뉴스 이미지 시리즈, 수처리 시설 비주얼 에셋 5종 제작 완료.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Runway / Pika -->
+    <div class="accordion-item">
+      <button class="accordion-header" id="acc-video-ai">
+        <span><i class="fa-solid fa-film" style="color:#e040fb;"></i> Runway / Pika — AI 영상 제작</span>
+        <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <h4><i class="fa-solid fa-bullseye"></i> 활용 목적</h4>
+          <p>Hero 섹션 배경 동영상(hero-video.mp4) 제작</p>
+          <h4><i class="fa-solid fa-terminal"></i> 사용 프롬프트 예시</h4>
+          <pre>"Slow motion crystal clear water flowing through
+modern industrial pipes, soft blue ambient lighting,
+cinematic quality, seamless loop, 4K resolution"</pre>
+          <h4><i class="fa-solid fa-circle-check"></i> 결과물</h4>
+          <p>기업 사이트 히어로 섹션에 적용된 자동 재생 루프 배경 영상 (hero-video.mp4).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Suno / AIVA -->
+    <div class="accordion-item">
+      <button class="accordion-header" id="acc-music-ai">
+        <span><i class="fa-solid fa-headphones" style="color:#ff6f00;"></i> Suno / AIVA — AI 음악 제작</span>
+        <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <h4><i class="fa-solid fa-bullseye"></i> 활용 목적</h4>
+          <p>기업 사이트 배경 음악(bgm.mp3) 제작</p>
+          <h4><i class="fa-solid fa-terminal"></i> 사용 프롬프트 예시</h4>
+          <pre>"Calm, ambient corporate background music,
+soft piano with water sounds, clean and professional,
+suitable for a water technology company website,
+120 seconds seamless loop"</pre>
+          <h4><i class="fa-solid fa-circle-check"></i> 결과물</h4>
+          <p>사용자가 BGM ON 버튼 클릭 시 재생되는 잔잔한 배경 음악 (bgm.mp3).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Gamma / Canva AI -->
+    <div class="accordion-item">
+      <button class="accordion-header" id="acc-design-ai">
+        <span><i class="fa-solid fa-palette" style="color:#00bcd4;"></i> Gamma / Canva AI — 문서 디자인</span>
+        <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <h4><i class="fa-solid fa-bullseye"></i> 활용 목적</h4>
+          <p>회사 소개서(지명원), 제품 브로슈어 PDF 디자인</p>
+          <h4><i class="fa-solid fa-list-check"></i> 작업 내용</h4>
+          <p>회사 기본 정보, 연혁, 인증 현황, 6종 펌프 제품 소개를 포함한 전문적인 기업 소개서를 디자인하고, PDF로 변환하여 웹사이트에 연동.</p>
+          <h4><i class="fa-solid fa-circle-check"></i> 결과물</h4>
+          <p>company-profile.pdf(지명원), brochure.pdf(홍보 브로슈어), pump-*.pdf 6종 펌프 지침서.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Gemini Antigravity / 통합 개발 -->
+    <div class="accordion-item">
+      <button class="accordion-header" id="acc-integration">
+        <span><i class="fa-solid fa-code" style="color:#76ff03;"></i> 코드 AI & 통합 개발 — 최종 조립 및 배포</span>
+        <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <h4><i class="fa-solid fa-bullseye"></i> 활용 목적</h4>
+          <p>AI 생성 에셋을 통합하여 최종 웹사이트 HTML/CSS/JS 조립</p>
+          <h4><i class="fa-solid fa-list-check"></i> 작업 내용</h4>
+          <ul style="margin-left:20px;color:var(--text-secondary);">
+            <li>HTML/CSS/JS 코드 구조화 및 파일 분리</li>
+            <li>FontAwesome 아이콘 & Swiper.js 라이브러리 통합</li>
+            <li>이미지, 동영상, 음악 에셋 연동</li>
+            <li>PDF 파일 링크 연결 (<code>target="_blank"</code>)</li>
+            <li>1280px 기준 반응형 디자인 및 크로스 브라우저 검증</li>
+          </ul>
+          <h4><i class="fa-solid fa-folder-tree"></i> 최종 디렉토리 구조</h4>
+          <pre>📁 프로젝트 루트
+├── index.html             (메인 게이트웨이)
+├── company-profile.pdf    (지명원)
+├── brochure.pdf           (홍보 브로슈어)
+├── pump-*.pdf             (펌프 지침서 6종)
+├── 📁 corporate/
+│   ├── index.html         (기업 사이트)
+│   ├── hero-video.mp4     (히어로 배경 영상)
+│   ├── bgm.mp3            (배경 음악)
+│   └── card1~5.jpg        (카드뉴스)
+├── 📁 portfolio/
+│   └── index.html         (AI 포트폴리오)
+├── 📁 css/
+│   └── style.css          (통합 스타일시트)
+└── 📁 js/
+    └── script.js          (통합 스크립트)</pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Back to Home -->
+  <div style="text-align:center;padding:0 20px 80px;position:relative;z-index:1;">
+    <a href="../index.html" class="btn-primary"><i class="fa-solid fa-arrow-left"></i> 메인으로 돌아가기</a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© 2025 비에이텍(주) BATECH Co., Ltd. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
